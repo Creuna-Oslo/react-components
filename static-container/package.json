@@ -1,0 +1,13 @@
+{
+  "name": "static-container",
+  "version": "1.0.0",
+  "description": "Container for preventing excessive children rendering during animation",
+  "main": "static-container.jsx",
+  "author": "Asbjorn Hegdahl <asbjorn.hegdahl@creuna.no>",
+  "license": "ISC",
+  "dependencies": {
+    "prop-types": "^15.5.8",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "fluid-image",
+  "version": "1.0.0",
+  "description": "A FluidImage component",
+  "main": "fluid-image.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Alexander Nilsson <alexander.nilsson@creuna.no>",
+  "license": "ISC",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "prop-types": "^15.6.0",
+    "react": "^16.1.0"
+  }
+}

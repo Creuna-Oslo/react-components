@@ -1,0 +1,14 @@
+{
+  "name": "modal",
+  "version": "1.0.0",
+  "description": "A basic modal",
+  "main": "modal.jsx",
+  "author": "Asbjorn Hegdahl <asbjorn.hegdahl@creuna.no>",
+  "license": "ISC",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "prop-types": "^15.5.8",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  }
+}

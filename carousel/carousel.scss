@@ -1,0 +1,44 @@
+.carousel-content {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  li {
+    flex-shrink: 0;
+  }
+}
+
+.carousel-items-wrapper,
+.carousel-thumbs-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-items,
+.carousel-thumbs {
+  will-change: transform;
+}
+
+.carousel-nav {
+  display: flex;
+  padding: 0;
+  justify-content: center;
+}
+
+.carousel-thumbs {
+  li {
+    position: relative;
+
+    > button {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+  }
+}
