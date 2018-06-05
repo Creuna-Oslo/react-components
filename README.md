@@ -1,8 +1,8 @@
 # Creuna React Components
-- [Carousel](Carousel/)
-- [FluidImage](FluidImage/)
-- [Modal](Modal/)
-- [StaticContainer](StaticContainer/)
+- [Carousel](carousel/)
+- [FluidImage](fluid-image/)
+- [Modal](modal/)
+- [StaticContainer](static-container/)
 
 ## About the components
 
