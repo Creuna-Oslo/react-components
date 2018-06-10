@@ -3,8 +3,9 @@
 const chalk = require('chalk');
 const { copySync, ensureDirSync } = require('fs-extra');
 const fs = require('fs');
-const getConfig = require('./get-config');
 const path = require('path');
+
+const getConfig = require('./get-config');
 const selectComponents = require('./select-components');
 
 module.exports = async function() {
