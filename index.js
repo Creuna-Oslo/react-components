@@ -12,22 +12,28 @@ module.exports = async function() {
 
   ensureDirSync(componentsPath);
 
-  selectComponents(selectedComponents => {
-    selectedComponents.forEach(componentName => {
-      const sourcePath = path.join(__dirname, 'components', componentName);
-      const destinationPath = path.join(componentsPath, componentName);
+  const selectedComponents = await selectComponents();
+  console.log(''); // Whitespace
 
-      if (fs.existsSync(destinationPath)) {
-        console.log(
-          `☠️  ${componentName} ${chalk.redBright('already exists. Skipping.')}`
-        );
-        return;
-      }
+  if (selectedComponents.length === 0) {
+    console.log(chalk.redBright('No components selected. Exiting.'));
+  }
 
-      copySync(sourcePath, destinationPath);
-      console.log(`🎉  ${chalk.blueBright(componentName)} added!`);
-    });
+  selectedComponents.forEach(componentName => {
+    const sourcePath = path.join(__dirname, 'components', componentName);
+    const destinationPath = path.join(componentsPath, componentName);
 
-    process.exit(0);
+    if (fs.existsSync(destinationPath)) {
+      console.log(
+        `☠️  ${componentName} ${chalk.redBright('already exists. Skipping.')}`
+      );
+      return;
+    }
+
+    copySync(sourcePath, destinationPath);
+    console.log(`🎉  ${chalk.blueBright(componentName)} added!`);
   });
+
+  console.log(''); // Whitespace
+  process.exit(0);
 };
