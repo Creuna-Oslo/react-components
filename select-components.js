@@ -4,19 +4,20 @@ const chalk = require('chalk');
 const fs = require('fs');
 const path = require('path');
 
-const list = require('select-shell')({
-  pointer: ' ➤ ',
-  pointerColor: 'black',
-  checked: '● ',
-  unchecked: '○ ',
-  checkedColor: 'cyan',
-  uncheckedColor: 'cyan',
-  msgCancel: '',
-  multiSelect: true,
-  prepend: true
-});
-
 module.exports = function() {
+  // Has to be required when called, or else 'shell-select' will initialize early and make everything behave weirdly
+  const list = require('select-shell')({
+    pointer: ' ➤ ',
+    pointerColor: 'black',
+    checked: '● ',
+    unchecked: '○ ',
+    checkedColor: 'cyan',
+    uncheckedColor: 'cyan',
+    msgCancel: '',
+    multiSelect: true,
+    prepend: true
+  });
+
   return new Promise(resolve => {
     const componentNames = fs.readdirSync(path.join(__dirname, 'components'));
 
