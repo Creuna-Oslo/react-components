@@ -1,5 +1,16 @@
 # FluidImage
 
+### autor:
+
+[Alexander Nilsson](mailto:alexander.nilsson@creuna.no)
+
+### dependencies:
+
+- `classnames`
+- `prop-types`
+
+### usage:
+
 ```js
 <FluidImage
   alt="My beautiful clownfish"

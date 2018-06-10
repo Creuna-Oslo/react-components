@@ -1,0 +1,35 @@
+{
+  "name": "@creuna/components",
+  "version": "1.0.0",
+  "description": "React component library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "creuna-lib": "./bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Creuna-Oslo/react-components.git"
+  },
+  "author": "Asbjørn Hegdahl <asbjorn.hegdahl@creuna.no>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Creuna-Oslo/react-components/issues"
+  },
+  "homepage": "https://github.com/Creuna-Oslo/react-components#readme",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "find-up": "^2.1.0",
+    "fs-extra": "^6.0.1",
+    "select-shell": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "prettier": "^1.13.5"
+  }
+}

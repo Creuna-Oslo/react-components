@@ -3,7 +3,7 @@ import { render } from "react-dom";
 
 import { Motion, spring } from "react-motion";
 
-import StaticContainer from "../static-container";
+import StaticContainer from "../../components/static-container";
 
 class Main extends React.Component {
   state = {

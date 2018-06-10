@@ -1,9 +1,9 @@
-require("../modal.scss");
+require("../../components/modal/modal.scss");
 
 import React from "react";
 import { render } from "react-dom";
 
-import Modal from "../modal";
+import Modal from "../../components/modal";
 
 class Main extends React.Component {
   state = {
