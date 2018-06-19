@@ -5,21 +5,13 @@
 - [Modal](components/modal/)
 - [StaticContainer](components/static-container/)
 
-## NPM
+## Usage
 
-### Install
+Copy paste all the things.
 
-```
-yarn add -g @creuna/cli
-```
+_Or_
 
-### Run (from within project directory)
-
-```
-creuna lib
-```
-
-Running this command requires you to have a `.creunarc.json` file in your project root. See [@creuna/cli](https://github.com/Creuna-Oslo/cli) docs for details.
+These components can be written to your project using the Creuna CLI (`@creuna/cli`). See the [@creuna/cli](https://github.com/Creuna-Oslo/cli) documentation for details.
 
 ## About the components
 
