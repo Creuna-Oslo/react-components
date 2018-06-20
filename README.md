@@ -4,35 +4,28 @@
 - [FluidImage](components/fluid-image/)
 - [Modal](components/modal/)
 - [StaticContainer](components/static-container/)
+- [VisuallyHidden](components/visually-hidden/)
 
-## NPM
+## 👩‍💻 Usage
 
-### Install
+Use the Creuna CLI to choose which components to write to your project 🚀. See the [@creuna/cli](https://github.com/Creuna-Oslo/cli) documentation for details.
 
-```
-yarn add -g @creuna/cli
-```
+_Or_
 
-### Run (from within project directory)
+Copy paste all the things 😞.
 
-```
-creuna lib
-```
+## ℹ️ About
 
-Running this command requires you to have a `.creunarc.json` file in your project root. See [@creuna/cli](https://github.com/Creuna-Oslo/cli) docs for details.
+The point of this library is not to provide npm-like packages that fit every use case. Rather, these components are a good starting point for getting you part of the way quickly. You will most likely have to modify them to fit your use case. Good luck 😀.
 
-## About the components
+## 📕 Documentation
 
-The point of this library is not to provide npm-like packages that fit every use case. Rather, these components are a good starting point for getting you half the way quickly. You will most likely have to modify them to fit your use case. Good luck ☺️
+Each component includes a `README.md`. Have a look inside and check if you have all the required dependencies. It also shows you who made the component so that you can tag them in an issue if there is something wrong with the component.
 
-#### Documentation
+## 🖥 Demos
 
-Each component includes a `README.md`. Have a look inside and check if you have all the required dependencies. It also shows you who made the component so that you can contact them if you need to.
+Some components have a demo which shows how the component can be used. The demos are found in the `/demos` folder.
 
-#### demos
-
-Some components have a demo which shows how the component can be used. Run with `yarn` and then `yarn dev`.
-
-#### contributing
+## ⌨️ Contributing
 
 We want your components! Whenever you make a component that feels like it could be useful for other client projects, please consider putting it here by submitting a pull request!
