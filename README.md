@@ -1,6 +1,7 @@
 # Creuna React Components
 
 - [Carousel](components/carousel/)
+- [DebounceRender](components/debounce-render)
 - [FluidImage](components/fluid-image/)
 - [Modal](components/modal/)
 - [StaticContainer](components/static-container/)
