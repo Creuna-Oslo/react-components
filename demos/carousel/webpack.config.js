@@ -51,7 +51,7 @@ module.exports = (env = {}) => {
       ]
     },
     resolve: {
-      modules: ["demo/node_modules", "node_modules"],
+      modules: ["../demos/carousel/node_modules", "node_modules"],
       extensions: [".js", ".jsx", ".scss"]
     },
     plugins: (() => {

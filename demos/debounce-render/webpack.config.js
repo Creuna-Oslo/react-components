@@ -50,7 +50,7 @@ module.exports = (env = {}) => {
       ]
     },
     resolve: {
-      modules: ["../demos/static-container/node_modules", "node_modules"],
+      modules: ["../demos/debounce-render/node_modules", "node_modules"],
       extensions: [".js", ".jsx", ".scss"]
     },
     plugins: (() => {

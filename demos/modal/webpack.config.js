@@ -50,7 +50,7 @@ module.exports = (env = {}) => {
       ]
     },
     resolve: {
-      modules: ["demo/node_modules", "node_modules"],
+      modules: ["../demos/modal/node_modules", "node_modules"],
       extensions: [".js", ".jsx", ".scss"]
     },
     plugins: (() => {
