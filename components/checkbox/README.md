@@ -12,6 +12,7 @@ Thomas Christoffersen
 
 - `prop-types`
 - `classnames`
+- `@creuna/lib Icon`
 
 ### Usage
 
