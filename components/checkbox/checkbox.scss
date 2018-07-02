@@ -1,0 +1,48 @@
+.checkbox {
+  $box-size: 1.4rem;
+  $icon-size: 0.85rem;
+  $break-at-sm: 40rem;
+
+  position: relative;
+  font-size: 1rem;
+  padding: 0.5rem ($box-size + 1rem) 0.5rem 0.5rem;
+  display: inline-block;
+
+  &__input {
+    display: none;
+  }
+
+  &__toggler {
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:visited {
+      color: inherit;
+    }
+  }
+
+  &__frame {
+    background-color: white;
+    border: 2px solid black;
+    display: inline-block;
+    height: $box-size;
+    padding: 0.1rem;
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    vertical-align: bottom;
+    width: $box-size;
+  }
+
+  &__icon {
+    height: 100%;
+    width: 100%;
+  }
+
+  &--default {
+  }
+
+  &--big {
+  }
+}
