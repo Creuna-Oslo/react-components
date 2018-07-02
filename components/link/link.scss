@@ -1,0 +1,13 @@
+.link {
+  text-decoration: none;
+
+  &--theme-underlined {
+    text-decoration: underline;
+  }
+
+  &--theme-default {
+    &:hover {
+      color: red;
+    }
+  }
+}
