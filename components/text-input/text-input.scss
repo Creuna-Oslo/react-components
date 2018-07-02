@@ -1,0 +1,22 @@
+.text-input {
+  &--in-focus {
+    outline: 1px solid red;
+  }
+
+  &--type-password {
+    color: blue;
+  }
+
+  &--type-email {
+    color: pink;
+  }
+
+  &--type-text {
+    color: yellow;
+  }
+
+  &__input {
+    padding: 1rem;
+    width: 100%;
+  }
+}
