@@ -6,6 +6,7 @@
 - [Modal](components/modal/)
 - [StaticContainer](components/static-container/)
 - [VisuallyHidden](components/visually-hidden/)
+- [Button](components/button/)
 
 ## 👩‍💻 Usage
 
