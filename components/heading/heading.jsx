@@ -1,22 +1,18 @@
-import cn from "classnames";
-import React from "react";
-import PropTypes from "prop-types";
+import cn from 'classnames';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const themes = {
-  default: "default",
-  chapter: "chapter"
+  default: 'default',
+  chapter: 'chapter'
 };
 
 const Heading = ({ children, className, level, theme }) => {
-  if (isNaN(level) || level < 1 || level > 6) {
-    return null;
-  }
-
   return React.createElement(
     `h${level}`,
     {
       className: cn(
-        "heading",
+        'heading',
         {
           [`heading--level-${level}`]: !themes[theme],
           [`heading--theme-${themes[theme]}`]: themes[theme]
@@ -24,7 +20,7 @@ const Heading = ({ children, className, level, theme }) => {
         className
       )
     },
-    { children }
+    children
   );
 };
 
@@ -34,12 +30,13 @@ Heading.propTypes = {
     PropTypes.arrayOf(PropTypes.node)
   ]).isRequired,
   className: PropTypes.string,
-  level: PropTypes.number.isRequired,
+  level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
   theme: PropTypes.oneOf(Object.keys(themes).map(key => themes[key]))
 };
 
 Heading.defaultProps = {
-  theme: themes.default
+  theme: themes.default,
+  level: 2
 };
 
 Heading.themes = themes;
