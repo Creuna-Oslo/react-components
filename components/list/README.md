@@ -10,15 +10,15 @@ Thomas Christoffersen
 
 ## Dependencies:
 
-- classnames
-- prop-types
+- `classnames`
+- `prop-types`
 
 ## Usage
 
-```
+```jsx
 <List ordered={true} inline={true}>
-    <RandomComponent />
-    <RandomComponent />
-    <RandomComponent />
+  <RandomComponent />
+  <RandomComponent />
+  <RandomComponent />
 </List>
 ```
