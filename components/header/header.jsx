@@ -1,15 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import cn from 'classnames';
-import TinyTransition from 'react-tiny-transition';
+import React from "react";
+import cn from "classnames";
+import TinyTransition from "react-tiny-transition";
 
-import MainMenu from './main-menu';
+import MainMenu from "./main-menu";
 
 class Header extends React.Component {
-  static propTypes = {
-    menuIsOverlay: PropTypes.bool
-  };
-
   state = { isMenuOpen: false };
 
   handleMenuButtonClick() {
@@ -21,8 +16,8 @@ class Header extends React.Component {
   render() {
     return (
       <div
-        className={cn('header', {
-          'header--is-expanded': this.state.isMenuOpen
+        className={cn("header", {
+          "header--is-expanded": this.state.isMenuOpen
         })}
       >
         <div className="header__toolbar">
@@ -40,8 +35,8 @@ class Header extends React.Component {
           </ul>
           <button
             onClick={() => this.handleMenuButtonClick()}
-            className={cn('header__menu-button', {
-              'header__menu-button--is-active': this.state.isMenuOpen
+            className={cn("header__menu-button", {
+              "header__menu-button--is-active": this.state.isMenuOpen
             })}
           >
             <span className="header__visually-hidden">MENU</span>
@@ -50,7 +45,7 @@ class Header extends React.Component {
 
         {this.state.isMenuOpen && (
           <TinyTransition duration={500}>
-            <MainMenu isOverlay={this.props.menuIsOverlay} />
+            <MainMenu />
           </TinyTransition>
         )}
       </div>

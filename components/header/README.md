@@ -12,12 +12,11 @@ Thomas Christoffersen
 
 ### Dependencies
 
-- `prop-types`
 - `classnames`
 - `react-tiny-transition`
 
 ### Usage
 
 ```jsx
-<Header menuIsOverlay={true} />
+<Header />
 ```

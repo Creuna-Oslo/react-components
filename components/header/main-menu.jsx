@@ -1,9 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import cn from 'classnames';
+import React from "react";
 
-const MainMenu = ({ isOverlay }) => (
-  <div className={cn('main-menu', { 'main-menu--is-overlay': isOverlay })}>
+const MainMenu = () => (
+  <div className="main-menu">
     <div className="main-menu__link-group">
       <h3 className="main-menu__links-header">Who</h3>
       <ul className="main-menu__links">
@@ -70,9 +68,5 @@ const MainMenu = ({ isOverlay }) => (
     </div>
   </div>
 );
-
-MainMenu.propTypes = {
-  isOverlay: PropTypes.bool
-};
 
 export default MainMenu;
