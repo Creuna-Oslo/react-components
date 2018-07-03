@@ -1,9 +1,12 @@
 .button {
+  font-size: 1rem;
+
   &--is-active {
-    outline: 1px solid red;
   }
 
   &--has-icon {
+    padding: 0;
+
     .button__text {
       position: absolute;
       width: 0;
@@ -13,7 +16,12 @@
     }
   }
 
+  &--theme-default {
+    padding: 1rem;
+  }
+
   &--theme-big {
     padding: 2rem;
+    font-size: 2rem;
   }
 }

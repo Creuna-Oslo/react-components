@@ -1,12 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import cn from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
+import cn from 'classnames';
 
-import Icon from "../icon";
+import Icon from '../icon';
 
 const themes = {
-  default: "default",
-  big: "big"
+  default: 'default',
+  big: 'big'
 };
 
 const Button = ({
@@ -23,11 +23,11 @@ const Button = ({
 }) => (
   <button
     className={cn(
-      "button",
+      'button',
       `button--theme-${theme}`,
       {
-        "button--is-active": isActive,
-        "button--has-icon": !!iconName
+        'button--is-active': isActive,
+        'button--has-icon': iconName
       },
       className
     )}
@@ -46,10 +46,7 @@ const Button = ({
 );
 
 Button.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.node,
-    PropTypes.arrayOf(PropTypes.node)
-  ]),
+  children: PropTypes.node,
   className: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   isDisabled: PropTypes.bool,
   iconName: PropTypes.string,
@@ -57,7 +54,7 @@ Button.propTypes = {
   iconSize: PropTypes.string,
   isActive: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
   theme: PropTypes.oneOf(Object.keys(themes).map(key => themes[key]))
 };
 
