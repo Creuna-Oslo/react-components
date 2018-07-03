@@ -10,18 +10,18 @@ Thomas Christoffersen
 
 ## Dependencies:
 
-- classnames
-- prop-types
+- `classnames`
+- `prop-types`
 
 ## Usage
 
-```
+```jsx
 <Grid numberOfColumns={3}>
-    <div>column 1, row 1</div>
-    <div>column 2, row 1</div>
-    <div>column 3, row 1</div>
-    <div>column 1, row 2</div>
-    <div>column 2, row 2</div>
-    <div>column 3, row 2</div>
+  <div>column 1, row 1</div>
+  <div>column 2, row 1</div>
+  <div>column 3, row 1</div>
+  <div>column 1, row 2</div>
+  <div>column 2, row 2</div>
+  <div>column 3, row 2</div>
 </Grid>
 ```
