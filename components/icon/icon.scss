@@ -1,19 +1,8 @@
-$available-icons: (
-  menu: "./hamburger.svg",
-  menu--active: "./close.svg"
-);
-
 .icon {
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: contain;
   display: inline-block;
-
-  @each $name, $value in $available-icons {
-    &--#{$name} {
-      background-image: url($value);
-    }
-  }
 
   &--small {
     width: 16px;
