@@ -1,0 +1,59 @@
+.main-menu {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+  background-color: #37d6dc;
+  font-size: 1.2rem;
+  padding: 4rem 2rem 2rem 2rem;
+  box-shadow: 0px 10px 7px -9px rgba(0, 0, 0, 0.75);
+
+  &--is-overlay {
+    position: absolute;
+    width: 100%;
+  }
+
+  &__link-group {
+    &--anchored-lower-right {
+      justify-self: end;
+      align-self: end;
+    }
+  }
+
+  &__links-header {
+    margin: 0 0 0.5rem 0;
+  }
+
+  &__links,
+  &__icons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__icons {
+    display: grid;
+    grid-gap: 0.5rem;
+    justify-self: end;
+    align-self: end;
+    grid-template-areas:
+      ". facebook"
+      "instagram twitter";
+  }
+
+  &__icon {
+    &--facebook {
+      grid-area: facebook;
+      @include icon(facebook-square-brands);
+    }
+
+    &--twitter {
+      grid-area: twitter;
+      @include icon(twitter-square-brands);
+    }
+
+    &--instagram {
+      grid-area: instagram;
+      @include icon(instagram-brands);
+    }
+  }
+}

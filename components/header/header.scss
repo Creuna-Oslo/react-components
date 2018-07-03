@@ -1,0 +1,76 @@
+@mixin icon($icon-name) {
+  width: 44px;
+  height: 44px;
+  display: block;
+  cursor: pointer;
+  border: 0;
+  background: url("./assets/#{$icon-name}.svg") no-repeat center;
+}
+
+.header {
+  position: relative;
+
+  &__toolbar {
+    background-color: #90e3e6;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+
+    display: grid;
+    align-items: center;
+    grid-column-gap: 2rem;
+    grid-template-areas: "logo . links button";
+  }
+
+  &__logo {
+    grid-area: logo;
+    height: 80px;
+    width: 150px;
+    display: block;
+    background: url("./assets/creuna-logo.png") no-repeat center;
+  }
+
+  &__links {
+    grid-area: links;
+    justify-self: end;
+  }
+
+  &__menu-button {
+    grid-area: button;
+    justify-self: end;
+    @include icon(bars-solid);
+
+    &--is-active {
+      @include icon(times-solid);
+    }
+  }
+
+  &__visually-hidden {
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -999em;
+    overflow: hidden;
+  }
+
+  &__link {
+    display: inline-block;
+    margin-right: 1rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  //react-tiny-transition
+  .before-enter {
+    transform-origin: 0 0;
+    transform: scaleY(0);
+  }
+
+  .entering {
+    transform-origin: 0 0;
+    transform: scaleY(1);
+
+    transition: transform 0.5s;
+  }
+}
