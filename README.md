@@ -6,6 +6,7 @@
 - [Modal](components/modal/)
 - [StaticContainer](components/static-container/)
 - [VisuallyHidden](components/visually-hidden/)
+- [Checkbox](components/checkbox/)
 
 ## 👩‍💻 Usage
 
