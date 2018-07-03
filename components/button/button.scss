@@ -1,12 +1,19 @@
 .button {
   font-size: 1rem;
 
-  &--is-active {
+  &--theme-default {
+    border: 1px solid black;
+    background: transparent;
+    padding: 0.5rem;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      background-color: #f7f7f7;
+    }
   }
 
   &--has-icon {
-    padding: 0;
-
     .button__text {
       position: absolute;
       width: 0;
@@ -16,12 +23,6 @@
     }
   }
 
-  &--theme-default {
-    padding: 1rem;
-  }
-
-  &--theme-big {
-    padding: 2rem;
-    font-size: 2rem;
+  &--is-active {
   }
 }
