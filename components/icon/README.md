@@ -1,6 +1,6 @@
 # Icon
 
-Generic icon component (stateless). The icon itself corresponds to an item name in a key/value list generated through scss. Sets `background-image` with size based on the size parameter.
+Generic icon component (stateless). Contains a list of required image resources that are inline styled (`background-image`) on the element. Sets the size based on a size parameter.
 
 Uses the BEM naming convention (http://getbem.com/) for class names.
 
@@ -10,11 +10,11 @@ Thomas Christoffersen
 
 ## Dependencies:
 
-- classnames
-- prop-types
+- `classnames`
+- `prop-types`
 
 ## Usage
 
-```
+```jsx
 <Icon name="open" size="medium" />
 ```
