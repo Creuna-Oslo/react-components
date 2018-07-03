@@ -1,29 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
-import cn from "classnames";
-
-import Icon from "../icon";
+import React from 'react';
+import PropTypes from 'prop-types';
+import cn from 'classnames';
 
 const themes = {
-  default: "default",
-  big: "big"
+  default: 'default',
+  important: 'important'
 };
 
-const Checkbox = ({
-  id,
-  isActive,
-  inputName,
-  iconName,
-  onChange,
-  text,
-  theme,
-  url
-}) => {
+const Checkbox = ({ id, checked, inputName, onChange, text, theme, url }) => {
   const label = React.createElement(
-    url ? "a" : "label",
+    url ? 'a' : 'label',
     {
-      className: cn("checkbox__toggler", {
-        "checkbox__toggler--active": isActive
+      className: cn('checkbox__toggler', {
+        'checkbox__toggler--checked': checked
       }),
       href: url ? url : undefined,
       htmlFor: id ? id : undefined,
@@ -35,18 +24,15 @@ const Checkbox = ({
     },
     <React.Fragment>
       <div className="checkbox__frame">
-        <Icon
-          className="checkbox__icon"
-          name={isActive ? iconName : undefined}
-        />
+        {checked && <div className="checkbox__icon" />}
       </div>
-      {text}
+      <span className="checkbox__text">{text}</span>
     </React.Fragment>
   );
 
   return (
     <div
-      className={cn("checkbox", {
+      className={cn('checkbox', {
         [`checkbox--${themes[theme]}`]: themes[theme]
       })}
     >
@@ -59,7 +45,7 @@ const Checkbox = ({
           name={inputName}
           onChange={e => onChange(e, id)}
           id={id}
-          checked={isActive}
+          checked={checked}
         />
       )}
       {label}
@@ -69,8 +55,8 @@ const Checkbox = ({
 
 Checkbox.propTypes = {
   id: PropTypes.string.isRequired,
-  isActive: PropTypes.bool,
-  name: PropTypes.string,
+  checked: PropTypes.bool,
+  inputName: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
   theme: PropTypes.oneOf(Object.keys(themes).map(key => themes[key])),
@@ -78,7 +64,8 @@ Checkbox.propTypes = {
 };
 
 Checkbox.defaultProps = {
-  theme: themes.default
+  theme: themes.default,
+  onChange: () => {}
 };
 
 Checkbox.themes = themes;
