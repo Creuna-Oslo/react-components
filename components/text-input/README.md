@@ -15,9 +15,10 @@ Thomas Christoffersen
 
 ## Usage
 
-```
+```jsx
 <TextInput
-    placeholder="inset password here"
-    theme={TextInput.themes.password}
+  label="Password"
+  placeholder="insert password here"
+  theme={TextInput.themes.password}
 />
 ```

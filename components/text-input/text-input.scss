@@ -7,16 +7,13 @@
     color: blue;
   }
 
-  &--type-email {
-    color: pink;
-  }
-
   &--type-text {
-    color: yellow;
+    color: green;
   }
 
   &__input {
     padding: 1rem;
     width: 100%;
+    font-size: 1rem;
   }
 }
