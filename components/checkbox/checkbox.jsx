@@ -2,12 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-const themes = {
-  default: 'default',
-  important: 'important'
-};
+import icon from './close.svg';
 
-const Checkbox = ({ id, checked, inputName, onChange, text, theme, url }) => {
+const Checkbox = ({ id, checked, inputName, onChange, text, url }) => {
   const label = React.createElement(
     url ? 'a' : 'label',
     {
@@ -24,18 +21,19 @@ const Checkbox = ({ id, checked, inputName, onChange, text, theme, url }) => {
     },
     <React.Fragment>
       <div className="checkbox__frame">
-        {checked && <div className="checkbox__icon" />}
+        {checked && (
+          <div
+            className="checkbox__icon"
+            style={{ backgroundImage: `url(${icon})` }}
+          />
+        )}
       </div>
       <span className="checkbox__text">{text}</span>
     </React.Fragment>
   );
 
   return (
-    <div
-      className={cn('checkbox', {
-        [`checkbox--${themes[theme]}`]: themes[theme]
-      })}
-    >
+    <div className="checkbox">
       {url ? (
         <React.Fragment />
       ) : (
@@ -59,15 +57,11 @@ Checkbox.propTypes = {
   inputName: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
-  theme: PropTypes.oneOf(Object.keys(themes).map(key => themes[key])),
   url: PropTypes.string
 };
 
 Checkbox.defaultProps = {
-  theme: themes.default,
   onChange: () => {}
 };
-
-Checkbox.themes = themes;
 
 export default Checkbox;
