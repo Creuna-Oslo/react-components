@@ -1,47 +1,25 @@
-@mixin icon($icon-name) {
-  width: 44px;
-  height: 44px;
-  display: block;
-  cursor: pointer;
-  border: 0;
-  background: url("./assets/#{$icon-name}.svg") no-repeat center;
-}
-
 .header {
   position: relative;
 
   &__toolbar {
-    background-color: #90e3e6;
-    font-size: 1.2rem;
-    padding: 1rem 2rem;
-
     display: grid;
     align-items: center;
-    grid-column-gap: 2rem;
-    grid-template-areas: "logo . links button";
+    justify-items: end;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1rem;
+    background-color: #90e3e6;
   }
 
   &__logo {
-    grid-area: logo;
-    height: 80px;
-    width: 150px;
-    display: block;
-    background: url("./assets/creuna-logo.png") no-repeat center;
-  }
-
-  &__links {
-    grid-area: links;
-    justify-self: end;
+    justify-self: start;
   }
 
   &__menu-button {
-    grid-area: button;
-    justify-self: end;
-    @include icon(bars-solid);
-
-    &--is-active {
-      @include icon(times-solid);
-    }
+    display: block;
+    width: 44px;
+    height: 44px;
+    background-repeat: no-repeat;
+    background-position: 50%;
   }
 
   &__visually-hidden {
