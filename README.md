@@ -7,6 +7,7 @@
 - [StaticContainer](components/static-container/)
 - [VisuallyHidden](components/visually-hidden/)
 - [Link](components/link/)
+- [List](components/list/)
 
 ## 👩‍💻 Usage
 
