@@ -1,0 +1,10 @@
+.link {
+  text-decoration: none;
+
+  &--theme-default {
+  }
+
+  &--theme-underlined {
+    text-decoration: underline;
+  }
+}
