@@ -1,11 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import cn from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
+import cn from 'classnames';
 
-import Icon from "../icon";
+import Icon from '../icon';
 
 const themes = {
-  default: "default"
+  primary: 'primary',
+  secondary: 'secondary'
 };
 
 const Button = ({
@@ -22,11 +23,11 @@ const Button = ({
 }) => (
   <button
     className={cn(
-      "button",
+      'button',
       `button--theme-${theme}`,
       {
-        "button--is-active": isActive,
-        "button--has-icon": iconName
+        'button--is-active': isActive,
+        'button--has-icon': iconName
       },
       className
     )}
@@ -58,7 +59,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  theme: themes.default
+  theme: themes.primary
 };
 
 Button.themes = themes;

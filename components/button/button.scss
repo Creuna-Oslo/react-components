@@ -1,16 +1,10 @@
 .button {
   font-size: 1rem;
 
-  &--theme-default {
-    border: 1px solid black;
-    background: transparent;
-    padding: 0.5rem;
-    cursor: pointer;
+  &--theme-primary {
+  }
 
-    &:hover,
-    &:focus {
-      background-color: #f7f7f7;
-    }
+  &--theme-secondary {
   }
 
   &--has-icon {
