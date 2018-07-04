@@ -1,0 +1,27 @@
+.menu {
+  background-color: #37d6dc;
+  padding: 1rem;
+
+  &__navigation {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+  }
+
+  &__social-media {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: end;
+  }
+
+  &__social-media-icon {
+    display: inline-block;
+  }
+
+  &__social-media-link {
+    width: 32px;
+    height: 32px;
+    display: block;
+    background-repeat: no-repeat;
+  }
+}

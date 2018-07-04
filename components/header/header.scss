@@ -1,0 +1,54 @@
+.header {
+  position: relative;
+
+  &__toolbar {
+    display: grid;
+    align-items: center;
+    justify-items: end;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1rem;
+    background-color: #90e3e6;
+  }
+
+  &__logo {
+    justify-self: start;
+  }
+
+  &__menu-button {
+    display: block;
+    width: 44px;
+    height: 44px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+  }
+
+  &__visually-hidden {
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -999em;
+    overflow: hidden;
+  }
+
+  &__link {
+    display: inline-block;
+    margin-right: 1rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  //react-tiny-transition
+  .before-enter {
+    transform-origin: 0 0;
+    transform: scaleY(0);
+  }
+
+  .entering {
+    transform-origin: 0 0;
+    transform: scaleY(1);
+
+    transition: transform 0.5s;
+  }
+}
