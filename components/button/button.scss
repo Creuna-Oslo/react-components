@@ -1,0 +1,22 @@
+.button {
+  font-size: 1rem;
+
+  &--theme-primary {
+  }
+
+  &--theme-secondary {
+  }
+
+  &--has-icon {
+    .button__text {
+      position: absolute;
+      width: 0;
+      height: 0;
+      left: -999em;
+      overflow: hidden;
+    }
+  }
+
+  &--is-active {
+  }
+}

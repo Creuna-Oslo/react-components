@@ -1,19 +1,21 @@
 # Creuna React Components
 
+- [Button](components/button/)
 - [Carousel](components/carousel/)
+- [Checkbox](components/checkbox/)
 - [DebounceRender](components/debounce-render)
 - [FluidImage](components/fluid-image/)
-- [Modal](components/modal/)
-- [StaticContainer](components/static-container/)
-- [VisuallyHidden](components/visually-hidden/)
-- [Checkbox](components/checkbox/)
+- [Grid](components/grid/)
 - [Heading](components/heading/)
 - [Header](components/header/)
-- [TextInput](components/text-input/)
-- [Grid](components/grid/)
 - [Icon](components/icon/)
 - [Link](components/link/)
 - [List](components/list/)
+- [Modal](components/modal/)
+- [StaticContainer](components/static-container/)
+- [TextInput](components/text-input/)
+- [VisuallyHidden](components/visually-hidden/)
+
 
 ## 👩‍💻 Usage
 
