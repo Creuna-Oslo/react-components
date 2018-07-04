@@ -6,6 +6,7 @@
 - [Modal](components/modal/)
 - [StaticContainer](components/static-container/)
 - [VisuallyHidden](components/visually-hidden/)
+- [Grid](components/grid/)
 - [Icon](components/icon/)
 - [Link](components/link/)
 - [List](components/list/)
