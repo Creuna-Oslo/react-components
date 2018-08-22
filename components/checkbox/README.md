@@ -1,6 +1,6 @@
 # Checkbox
 
-Checkbox component. Outputs either a `<label>` with a hidden `<input>`, or just an `<a>`-tag (based on how you prefer your backend implemented). Is stateless, so dependent on the `onChange` func property to dictate whether it's checked or not.
+Checkbox component. Outputs either a `<label>` with a hidden `<input>`, or just an `<a>`-tag (based on how you prefer your backend implemented). Is stateless, so dependent on the `checked` property to dictate whether it's checked or not.
 
 Uses the BEM naming convention (http://getbem.com/) for class names.
 
@@ -19,8 +19,8 @@ Thomas Christoffersen
 <Checkbox
   id="123456"
   text="check me!"
-  iconName="checkbox"
+  checked={this.state.isChecked}
   inputName="TrueOrFalse"
-  onChange={() => this.handleOnChange()}
+  onChange={this.handleChange}
 />
 ```
