@@ -1,0 +1,68 @@
+.range-slider {
+  border: none;
+  margin-left: 0;
+  margin-right: 0;
+  min-width: 0;
+
+  legend {
+    display: table;
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  &-inputs {
+    display: flex;
+    justify-content: space-between;
+    clear: both;
+  }
+
+  &-slider {
+    position: relative;
+    height: 15px;
+    border: 1px solid;
+    border-radius: 10px;
+  }
+
+  &-active-region {
+    // Use 'top' and 'bottom' to set height of active region relative to parent
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    background-color: black;
+  }
+
+  &-knob {
+    $knob-size: 20px;
+    position: absolute;
+    top: 50%;
+    height: $knob-size;
+    width: $knob-size;
+    margin-top: -10px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 20px;
+
+    &.from {
+      // Move knob slightly to the left to make it cover the border of the slider track
+      margin-left: -($knob-size / 2) - 1px;
+    }
+
+    &.to {
+      // Move knob slightly to the right to make it cover the border of the slider track
+      margin-left: -($knob-size / 2) + 1px;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      height: 40px;
+      width: 40px;
+      top: 50%;
+      left: 50%;
+      margin-top: -20px;
+      margin-left: -20px;
+    }
+  }
+}
