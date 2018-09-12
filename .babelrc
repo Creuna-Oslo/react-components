@@ -1,0 +1,19 @@
+{
+  "plugins": [
+    "./demos/node_modules/babel-plugin-transform-class-properties",
+    "./demos/node_modules/babel-plugin-transform-object-rest-spread"
+  ],
+  "presets": [
+    [
+      "./demos/node_modules/babel-preset-env",
+      {
+        "debug": false,
+        "targets": {
+          "browsers": ["last 2 versions"]
+        },
+        "useBuiltIns": true
+      }
+    ],
+    "./demos/node_modules/babel-preset-react"
+  ]
+}
