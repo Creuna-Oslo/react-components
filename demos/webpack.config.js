@@ -82,7 +82,7 @@ module.exports = () => {
       ],
       extensions: [".js", ".jsx", ".scss"],
       alias: {
-        components: path.resolve(__dirname, "source/components"),
+        components: path.resolve(__dirname, "../components"),
         js: path.resolve(__dirname, "source/js")
       }
     },
