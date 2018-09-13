@@ -36,6 +36,10 @@ class RangeSlider extends React.Component {
   draggingTo = false;
 
   onSliderRef = wrapper => {
+    if (!wrapper) {
+      return;
+    }
+
     this.setState({
       width: wrapper.offsetWidth,
       screenLeft: wrapper.getBoundingClientRect().left
@@ -64,13 +68,13 @@ class RangeSlider extends React.Component {
     }));
   };
 
-  onDrag = e => {
+  onDrag = xPosition => {
     if (!this.draggingFrom && !this.draggingTo) {
       return;
     }
 
     this.setState(state => {
-      const position = e.clientX - state.screenLeft;
+      const position = xPosition - state.screenLeft;
       const value = Math.round(
         rangeMap(position, 0, state.width, this.props.min, this.props.max)
       );
@@ -83,6 +87,14 @@ class RangeSlider extends React.Component {
         return { to: this.clampTo(value, state) };
       }
     });
+  };
+
+  onMouseMove = e => {
+    this.onDrag(e.clientX);
+  };
+
+  onTouchMove = e => {
+    this.onDrag(e.touches[0].clientX);
   };
 
   onFromMouseDown = () => {
@@ -102,12 +114,16 @@ class RangeSlider extends React.Component {
 
   componentDidMount() {
     window.addEventListener("mouseup", this.resetDragging);
-    window.addEventListener("mousemove", this.onDrag);
+    window.addEventListener("touchend", this.resetDragging);
+    window.addEventListener("mousemove", this.onMouseMove);
+    window.addEventListener("touchmove", this.onTouchMove);
   }
 
   componentWillUnmount() {
     window.removeEventListener("mouseup", this.resetDragging);
-    window.removeEventListener("mousemove", this.onDrag);
+    window.removeEventListener("touchend", this.resetDragging);
+    window.removeEventListener("mousemove", this.onMouseMove);
+    window.removeEventListener("touchmove", this.onTouchMove);
   }
 
   render() {
@@ -156,6 +172,7 @@ class RangeSlider extends React.Component {
               <div
                 className="range-slider-knob from"
                 onMouseDown={this.onFromMouseDown}
+                onTouchStart={this.onFromMouseDown}
                 style={{
                   left: fromPosition,
                   zIndex: this.state.draggingFrom ? 2 : null
@@ -164,6 +181,7 @@ class RangeSlider extends React.Component {
               <div
                 className="range-slider-knob to"
                 onMouseDown={this.onToMouseDown}
+                onTouchStart={this.onToMouseDown}
                 style={{
                   left: toPosition,
                   zIndex: this.state.draggingTo ? 2 : null
