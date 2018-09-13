@@ -1,4 +1,4 @@
-reguire("../../components/carousel/carousel.scss");
+require("../../components/carousel/carousel.scss");
 
 import React from "react";
 import { render } from "react-dom";
