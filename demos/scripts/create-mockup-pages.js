@@ -102,7 +102,7 @@ klaw(pagesDirectory, { filter })
       .map(group => {
         // Set fallback group name
         if (!group.title) {
-          group.title = 'Annet';
+          group.title = '';
         }
 
         group.pages = group.pages.sort((a, b) => a.name > b.name);
