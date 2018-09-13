@@ -1,5 +1,7 @@
 html {
   box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 *,
@@ -15,4 +17,12 @@ body {
 
 .mouse-user * {
   outline: none;
+}
+
+.page {
+  padding: 50px;
+}
+
+.page-back-link {
+  font-size: 1.3em;
 }
