@@ -1,23 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-const Layout = ({ children, showHeader, showFooter }) => (
-  <React.Fragment>
-    {showHeader && <header />}
+const Layout = ({ children, showLink }) => (
+  <div className="page">
+    {showLink && (
+      <a className="page-back-link" href="/">
+        Back
+      </a>
+    )}
     {children}
-    {showFooter && <footer />}
-  </React.Fragment>
+  </div>
 );
 
 Layout.propTypes = {
   children: PropTypes.node,
-  showHeader: PropTypes.bool,
-  showFooter: PropTypes.bool
+  showLink: PropTypes.bool
 };
 
 Layout.defaultProps = {
-  showHeader: true,
-  showFooter: true
+  showLink: true
 };
 
 export default Layout;
