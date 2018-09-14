@@ -24,7 +24,7 @@ class DebounceRenderPage extends React.Component {
   render() {
     return (
       <Layout>
-        <div style={{ marginTop: 40 }}>
+        <div>
           <button onClick={this.toggle} ref={b => (this.button = b)}>
             Animate
           </button>
