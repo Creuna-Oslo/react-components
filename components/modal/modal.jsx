@@ -35,7 +35,7 @@ class Modal extends React.Component {
     this.modal.removeEventListener("keyup", this.handleEscPress);
   }
 
-  componentWillReceiveProps(nextProps) {
+  unsafe_componentWillReceiveProps(nextProps) {
     if (nextProps.isVisible !== this.props.isVisible) {
       if (nextProps.isVisible) {
         this.onAfterShowModal();
@@ -68,7 +68,7 @@ class Modal extends React.Component {
 
   render() {
     const ariaProps = { "aria-modal": true, role: "dialog" };
-    const bodyElement = document && document.body;
+    const bodyElement = typeof document !== "undefined" && document.body;
     return !bodyElement
       ? null
       : ReactDOM.createPortal(
