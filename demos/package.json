@@ -2,6 +2,7 @@
   "name": "creuna-react-components",
   "version": "1.0.0",
   "author": "Team UI",
+  "license": "MIT",
   "scripts": {
     "dev": "node scripts/create-mockup-pages && webpack-dev-server --mode=development",
     "lint": "eslint --ext js,jsx ./source",
