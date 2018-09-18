@@ -1,0 +1,22 @@
+[
+  {
+    "id": "slide-1",
+    "title": "Slide 1",
+    "image": "/mockup/assets/doge.jpg"
+  },
+  {
+    "id": "slide-2",
+    "title": "Slide 2",
+    "image": "/mockup/assets/doge.jpg"
+  },
+  {
+    "id": "slide-3",
+    "title": "Slide 3",
+    "image": "/mockup/assets/doge.jpg"
+  },
+  {
+    "id": "slide-4",
+    "title": "Slide 4",
+    "image": "/mockup/assets/doge.jpg"
+  }
+]
