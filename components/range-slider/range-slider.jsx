@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import cn from "classnames";
 import clamp from "@creuna/utils/clamp";
 import rangeMap from "@creuna/utils/range-map";
 
@@ -135,7 +134,7 @@ class RangeSlider extends React.Component {
     const toPosition = rangeMap(to, min, max, 10, width - 10);
 
     return (
-      <fieldset className={cn("range-slider", this.props.className)}>
+      <fieldset className="range-slider">
         <legend>{this.props.label}</legend>
 
         <div className="range-slider-inputs">

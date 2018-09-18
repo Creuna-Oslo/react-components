@@ -9,7 +9,6 @@ Accessible range slider component. Supports setting 'from' and 'to'.
 ### Dependencies
 
 - `prop-types`
-- `classnames`
 - `@creuna/utils`
 
 ### Usage
