@@ -12,10 +12,10 @@
 - [Link](components/link/)
 - [List](components/list/)
 - [Modal](components/modal/)
+- [RangeSlider](components/range-slider/)
 - [StaticContainer](components/static-container/)
 - [TextInput](components/text-input/)
 - [VisuallyHidden](components/visually-hidden/)
-
 
 ## 👩‍💻 Usage
 

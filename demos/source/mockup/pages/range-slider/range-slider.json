@@ -1,0 +1,15 @@
+{
+  "from": {
+    "label": "Fra",
+    "name": "range-from",
+    "value": "10"
+  },
+  "label": "Range select",
+  "max": 30,
+  "min": 0,
+  "to": {
+    "label": "Til",
+    "name": "range-to",
+    "value": "20"
+  }
+}
