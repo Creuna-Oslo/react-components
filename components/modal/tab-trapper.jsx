@@ -14,12 +14,32 @@ class TabTrapper extends React.Component {
     shiftKeyIsPressed: false
   };
 
+  previouslyFocusedElement = null;
+
   componentDidMount() {
     this.container.addEventListener("keydown", this.onKeyDown);
   }
 
   componentWillUnmount() {
     this.container.removeEventListener("keydown", this.onKeyDown);
+
+    if (this.previouslyFocusedElement) {
+      this.previouslyFocusedElement.focus();
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (!prevProps.isActive && this.props.isActive) {
+      this.previouslyFocusedElement = document.activeElement;
+    }
+
+    if (
+      prevProps.isActive &&
+      !this.props.isActive &&
+      this.previouslyFocusedElement
+    ) {
+      this.previouslyFocusedElement.focus();
+    }
   }
 
   onKeyDown = e => {
