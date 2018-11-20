@@ -10,7 +10,7 @@ class Modal extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
     isVisible: PropTypes.bool,
-    hide: PropTypes.func.isRequired // will be triggered by click on close button, modal background or by pressing the esc key
+    hide: PropTypes.func.isRequired // will be triggered by click on the modal background or by pressing the esc key
   };
 
   state = {
