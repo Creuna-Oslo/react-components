@@ -32,26 +32,3 @@
   left: 0;
   background-color: rgba(black, 0.2);
 }
-
-.modal-content {
-  width: 95%;
-  max-width: 600px;
-  margin: 0 auto;
-  position: relative;
-  background-color: white;
-  overflow: hidden;
-  transform: scale(0.9);
-  will-change: transform;
-  transition: transform 0.5s cubic-bezier(0.3, 0.75, 0.3, 1);
-  overflow: hidden;
-
-  .modal.is-visible & {
-    transform: none;
-  }
-}
-
-.modal-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-}

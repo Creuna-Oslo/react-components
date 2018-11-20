@@ -8,31 +8,26 @@ import TabTrapper from "./tab-trapper";
 
 class Modal extends React.Component {
   static propTypes = {
-    children: PropTypes.oneOfType([
-      PropTypes.node,
-      PropTypes.arrayOf(PropTypes.node)
-    ]).isRequired,
-    closeButtonText: PropTypes.string,
+    children: PropTypes.node.isRequired,
     isVisible: PropTypes.bool,
-    onCloseClick: PropTypes.func.isRequired // will be triggered by click on close button, modal background or by pressing the esc key
+    hide: PropTypes.func.isRequired // will be triggered by click on close button, modal background or by pressing the esc key
   };
 
-  static defaultProps = {
-    closeButtonText: "Lukk"
+  state = {
+    fitsOnScreen: false,
+    contentHeight: 0
   };
-
-  state = {};
 
   componentDidMount() {
-    this.modal.addEventListener("keyup", this.handleEscPress);
+    window.addEventListener("keyup", this.handleEscPress);
 
     this.setState({
-      fitsOnScreen: this.modal.offsetHeight < window.innerHeight
+      fitsOnScreen: this.modal.scrollHeight <= window.innerHeight
     });
   }
 
   componentWillUnmount() {
-    this.modal.removeEventListener("keyup", this.handleEscPress);
+    window.removeEventListener("keyup", this.handleEscPress);
   }
 
   componentDidUpdate(prevProps) {
@@ -45,22 +40,22 @@ class Modal extends React.Component {
     // Wait one frame before focusing
     requestAnimationFrame(() => {
       this.modal.focus();
-      this.modalWrapper.scrollTop = 0;
+      this.modal.scrollTop = 0;
     });
 
     this.setState(
       {
-        fitsOnScreen: this.modal.offsetHeight < window.innerHeight
+        fitsOnScreen: this.modal.scrollHeight <= window.innerHeight
       },
       () => {
-        this.setState({ contentHeight: this.modalWrapper.scrollHeight });
+        this.setState({ contentHeight: this.modal.scrollHeight });
       }
     );
   };
 
   handleEscPress = e => {
     if (e.which === 27) {
-      this.props.onCloseClick();
+      this.props.hide();
     }
   };
 
@@ -75,7 +70,8 @@ class Modal extends React.Component {
               "is-visible": this.props.isVisible,
               "fits-on-screen": this.state.fitsOnScreen
             })}
-            ref={d => (this.modalWrapper = d)}
+            ref={div => (this.modal = div)}
+            tabIndex={-1}
             {...ariaProps}
           >
             <div
@@ -83,24 +79,12 @@ class Modal extends React.Component {
               style={{
                 minHeight: this.state.contentHeight
               }}
-              onClick={this.props.onCloseClick}
+              onClick={this.props.hide}
             />
 
-            <div
-              className="modal-content"
-              ref={d => (this.modal = d)}
-              tabIndex={-1}
-            >
-              <TabTrapper isActive={this.props.isVisible}>
-                {this.props.children}
-                <button
-                  className="modal-close"
-                  onClick={this.props.onCloseClick}
-                >
-                  {this.props.closeButtonText}
-                </button>
-              </TabTrapper>
-            </div>
+            <TabTrapper isActive={this.props.isVisible}>
+              {this.props.children}
+            </TabTrapper>
           </div>,
           bodyElement
         );
