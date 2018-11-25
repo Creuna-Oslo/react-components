@@ -3,10 +3,7 @@ import PropTypes from "prop-types";
 
 class TabTrapper extends React.Component {
   static propTypes = {
-    children: PropTypes.oneOfType([
-      PropTypes.node,
-      PropTypes.arrayOf(PropTypes.node)
-    ]),
+    children: PropTypes.node,
     isActive: PropTypes.bool
   };
 
@@ -17,11 +14,11 @@ class TabTrapper extends React.Component {
   previouslyFocusedElement = null;
 
   componentDidMount() {
-    this.container.addEventListener("keydown", this.onKeyDown);
+    window.addEventListener("keydown", this.onKeyDown);
   }
 
   componentWillUnmount() {
-    this.container.removeEventListener("keydown", this.onKeyDown);
+    window.removeEventListener("keydown", this.onKeyDown);
 
     if (this.previouslyFocusedElement) {
       this.previouslyFocusedElement.focus();
@@ -46,31 +43,29 @@ class TabTrapper extends React.Component {
     this.setState({ shiftKeyIsPressed: e.shiftKey });
   };
 
-  trapFirst = () => {
+  jumpToEnd = () => {
     this.afterWrapper.focus();
   };
 
-  trapLast = () => {
+  jumpToStart = () => {
     this.beforeWrapper.focus();
   };
 
-  getButtonStyle = () => {
-    return {
-      position: "absolute",
-      width: 0,
-      height: 0,
-      left: "-999em",
-      overflow: "hidden"
-    };
+  buttonStyle = {
+    position: "absolute",
+    width: 0,
+    height: 0,
+    left: "-999em",
+    overflow: "hidden"
   };
 
   render() {
     return (
-      <div ref={div => (this.container = div)}>
+      <React.Fragment>
         {this.props.isActive && (
           <button
-            onFocus={this.trapFirst}
-            style={this.getButtonStyle()}
+            onFocus={this.jumpToEnd}
+            style={this.buttonStyle}
             disabled={!this.state.shiftKeyIsPressed}
           />
         )}
@@ -80,9 +75,9 @@ class TabTrapper extends React.Component {
 
         <div ref={div => (this.afterWrapper = div)} tabIndex={-1} />
         {this.props.isActive && (
-          <button onFocus={this.trapLast} style={this.getButtonStyle()} />
+          <button onFocus={this.jumpToStart} style={this.buttonStyle} />
         )}
-      </div>
+      </React.Fragment>
     );
   }
 }

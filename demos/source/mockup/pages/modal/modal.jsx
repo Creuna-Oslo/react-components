@@ -5,14 +5,18 @@ import Layout from "../../layout";
 import Modal from "components/modal";
 require("components/modal/modal.scss");
 
+const modalStyle = {
+  position: "relative",
+  backgroundColor: "white",
+  width: "90%",
+  maxWidth: 600,
+  margin: "0 auto"
+};
+
 class ModalPage extends React.Component {
   state = {
     modalVisible: false
   };
-
-  componentDidMount() {
-    this.setState({ button: this.button });
-  }
 
   toggleModal = () => {
     this.setState(state => ({
@@ -20,26 +24,21 @@ class ModalPage extends React.Component {
     }));
   };
 
-  onModalClose = () => {
+  hideModal = () => {
     this.setState({ modalVisible: false });
-    this.button.focus();
   };
 
   render() {
     return (
       <Layout>
         <div>
-          <button onClick={this.toggleModal} ref={b => (this.button = b)}>
-            Vis modal
-          </button>
+          <button onClick={this.toggleModal}>Vis modal</button>
 
-          <Modal
-            buttonThatOpened={this.state.button}
-            isVisible={this.state.modalVisible}
-            onCloseClick={this.onModalClose}
-          >
-            <h2>Hallo</h2>
-            <button>test</button>
+          <Modal hide={this.hideModal} isVisible={this.state.modalVisible}>
+            <div style={modalStyle}>
+              <h2>Hallo</h2>
+              <button onClick={this.hideModal}>Lukk</button>
+            </div>
           </Modal>
         </div>
       </Layout>
