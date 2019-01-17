@@ -13,7 +13,7 @@
   }
 
   &.is-mounted {
-    // NOTE: Makes real select invisible and put behind real select
+    // NOTE: Makes real select invisible and puts it behind real select
     select {
       z-index: 0;
       opacity: 0;
@@ -21,7 +21,7 @@
   }
 
   &.has-touch {
-    // NOTE: Put the invisible select on top of the fake select to bring up the native select menu on touch
+    // NOTE: Puts the invisible select on top of the fake select to bring up the native select menu on touch
     select {
       z-index: 2;
     }
