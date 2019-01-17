@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import cn from "classnames";
 
-// NOTE: This is a naiive implementation of 'lodash/get'. Replave it if you have 'lodash' as a dependency
+// NOTE: This is a naive implementation of 'lodash/get'. Replace it if you have 'lodash' as a dependency
 const get = (object, key, fallback) => {
   try {
     return object[key];
