@@ -1,0 +1,45 @@
+.select {
+  position: relative;
+
+  select {
+    // NOTE: Makes the select element overlap the entire fake select
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 16px; // NOTE: Prevent iPhone zoom on focus
+  }
+
+  &.is-mounted {
+    // NOTE: Makes real select invisible and put behind real select
+    select {
+      z-index: 0;
+      opacity: 0;
+    }
+  }
+
+  &.has-touch {
+    // NOTE: Put the invisible select on top of the fake select to bring up the native select menu on touch
+    select {
+      z-index: 2;
+    }
+  }
+}
+
+.select-fake {
+  position: relative;
+  border: 1px solid black;
+  user-select: none;
+
+  // NOTE: Outline for keyboard users
+  .select:not(.has-touch) select:focus + & {
+    outline: 1px dotted #212121;
+    outline: 5px auto -webkit-focus-ring-color;
+  }
+
+  li.is-active {
+    background-color: gray;
+  }
+}
