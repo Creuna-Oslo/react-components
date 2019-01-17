@@ -13,6 +13,7 @@
 - [List](components/list/)
 - [Modal](components/modal/)
 - [RangeSlider](components/range-slider/)
+- [Select](components/select/)
 - [StaticContainer](components/static-container/)
 - [TextInput](components/text-input/)
 - [VisuallyHidden](components/visually-hidden/)
