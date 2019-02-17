@@ -1,0 +1,28 @@
+.tabs-list {
+  display: flex;
+  position: relative;
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  li {
+    position: relative;
+    font-weight: bold;
+  }
+
+  a {
+    display: block;
+    overflow: hidden;
+    padding: 20px;
+    background-color: gray;
+
+    &.is-active {
+      background-color: lightgray;
+    }
+  }
+}
+
+.tabs-list-content {
+  display: flex;
+}

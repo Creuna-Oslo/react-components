@@ -15,6 +15,7 @@
 - [RangeSlider](components/range-slider/)
 - [Select](components/select/)
 - [StaticContainer](components/static-container/)
+- [Tabs](components/tabs)
 - [TextInput](components/text-input/)
 - [VisuallyHidden](components/visually-hidden/)
 

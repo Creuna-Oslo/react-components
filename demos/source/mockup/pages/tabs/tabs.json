@@ -1,0 +1,8 @@
+{
+  "tabs": [
+    { "guid": "tab-a", "name": "A" },
+    { "guid": "tab-b", "name": "B" },
+    { "guid": "tab-c", "name": "C" }
+  ],
+  "content": ["Tab content A", "Tab content B", "Tab content C"]
+}
