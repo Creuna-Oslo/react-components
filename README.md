@@ -11,6 +11,7 @@
 - [Icon](components/icon/)
 - [Link](components/link/)
 - [List](components/list/)
+- [Map](components/map)
 - [Modal](components/modal/)
 - [RangeSlider](components/range-slider/)
 - [Select](components/select/)
