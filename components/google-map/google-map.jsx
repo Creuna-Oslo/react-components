@@ -10,7 +10,7 @@ const GoogleMapsLoader = isRunningOnClient ? require("google-maps") : false;
 import mapOptions from "./map-options";
 import MapPopup from "./map-popup";
 
-class Map extends React.Component {
+class GoogleMap extends React.Component {
   static propTypes = {
     googleMapsAPIKey: PropTypes.string,
     markers: PropTypes.arrayOf(
@@ -74,11 +74,13 @@ class Map extends React.Component {
               <MapPopup {...marker.popup} />
             )
           }),
+
           marker: new google.maps.Marker({
             position: {
               lat: marker.latitude,
               lng: marker.longitude
             },
+
             title: marker.name,
             map: this.map
           })
@@ -95,8 +97,8 @@ class Map extends React.Component {
   }
 
   render() {
-    return <div className="map" ref={div => (this.mapElement = div)} />;
+    return <div className="google-map" ref={div => (this.mapElement = div)} />;
   }
 }
 
-export default Map;
+export default GoogleMap;

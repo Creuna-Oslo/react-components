@@ -1,15 +1,15 @@
-// Map
+// GoogleMap
 import React from "react";
 import Layout from "../../layout";
 
-import Map from "components/map";
+import GoogleMap from "components/google-map";
 
-require("components/map/map.scss");
+require("components/google-map/google-map.scss");
 
-const MapPage = () => {
+const GoogleMapPage = () => {
   return (
     <Layout>
-      <Map
+      <GoogleMap
         markers={[
           {
             name: "Creuna",
@@ -35,4 +35,4 @@ const MapPage = () => {
   );
 };
 
-export default MapPage;
+export default GoogleMapPage;
