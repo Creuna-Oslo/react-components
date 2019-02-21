@@ -1,4 +1,4 @@
 {
   "componentsPath": "components",
-  "mockupPath": "demos/source/mockup/pages"
+  "staticSitePath": "demos/source/mockup/pages"
 }
