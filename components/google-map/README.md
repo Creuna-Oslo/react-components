@@ -1,4 +1,4 @@
-# Map
+# GoogleMap
 
 Map with support for markers and custom popups using `google-maps`.
 
