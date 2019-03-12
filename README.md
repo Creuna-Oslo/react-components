@@ -5,6 +5,7 @@
 - [Checkbox](components/checkbox/)
 - [DebounceRender](components/debounce-render)
 - [FluidImage](components/fluid-image/)
+- [GoogleMap](components/google-map)
 - [Grid](components/grid/)
 - [Heading](components/heading/)
 - [Header](components/header/)
