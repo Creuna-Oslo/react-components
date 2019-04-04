@@ -25,3 +25,10 @@ Some components have a demo which shows how the component can be used. The demos
 ## ⌨️ Contributing
 
 We want your components! Whenever you make a component that feels like it could be useful for other client projects, please consider putting it here by submitting a pull request!
+
+Here are some recommendations for adding components:
+
+- Add a readme file in the component folder. It should at least mention who the author is. A description and a list of dependencies is also useful.
+- Try to make the component as general as possible before uploading. This will make using the component a lot easier for other people.
+  - Try to remove any business or project specific logic from the component. More generic is better.
+  - Remove as much styling as possible. Less styles in a component means less work for the person downloading it.
