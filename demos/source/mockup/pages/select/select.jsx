@@ -11,9 +11,10 @@ const ModalPage = () => (
       <Select
         id="select"
         name="select"
+        placeholder="Select a value"
         options={[
           { label: "Apples", value: "apples" },
-          { label: "Oranges", value: "oranges", selected: true },
+          { label: "Oranges", value: "oranges" },
           { label: "Bananas", value: "bananas" }
         ]}
       />

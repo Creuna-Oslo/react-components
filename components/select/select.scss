@@ -12,7 +12,7 @@
     font-size: 16px; // NOTE: Prevent iPhone zoom on focus
   }
 
-  &.is-mounted {
+  &--is-mounted {
     // NOTE: Makes real select invisible and puts it behind fake select
     select {
       z-index: 0;
@@ -20,26 +20,43 @@
     }
   }
 
-  &.has-touch {
+  &--has-touch {
     // NOTE: Puts the invisible real select on top of the fake select to bring up the native select menu on touch
     select {
       z-index: 2;
     }
   }
-}
 
-.select-fake {
-  position: relative;
-  border: 1px solid black;
-  user-select: none;
-
-  // NOTE: Outline for keyboard users
-  .select:not(.has-touch) select:focus + & {
-    outline: 1px dotted #212121;
-    outline: 5px auto -webkit-focus-ring-color;
+  &--is-disabled {
+    opacity: 0.5;
   }
 
-  li.is-active {
-    background-color: gray;
+  &__fake {
+    position: relative;
+    user-select: none;
+
+    // NOTE: Outline for keyboard users
+    .select:not(.select--has-touch) select:focus + & {
+      outline: 1px dotted #212121;
+      outline: 5px auto -webkit-focus-ring-color;
+    }
+
+    ul {
+      position: absolute;
+      width: 100%;
+      background-color: white;
+      border: 1px solid black;
+      margin: 0;
+      font-size: inherit;
+    }
+  }
+
+  &__element {
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  &__option {
+    cursor: pointer;
   }
 }

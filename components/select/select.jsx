@@ -3,6 +3,12 @@ import PropTypes from "prop-types";
 
 import cn from "classnames";
 
+// NOTE: These should be moved to a centralized hooks folder if possible.
+import useIsMounted from "./use-is-mounted";
+import useEvent from "./use-event";
+import useToggle from "./use-toggle";
+import useClickOutside from "./use-click-outside";
+
 // NOTE: This is a naive implementation of 'lodash/get'. Replace it if you have 'lodash' as a dependency
 const get = (object, key, fallback) => {
   try {
@@ -12,127 +18,116 @@ const get = (object, key, fallback) => {
   }
 };
 
-const getInitialOption = options => {
-  const selectedOption = options.find(o => o.selected);
-  return get(selectedOption, "value") || get(options[0], "value");
+// NOTE: Since an option can't have `null` or `false` as a value (the text label of the option will be used instead), the "null" choice is represented using a single space. A single space is serialized to an empty value when submitting a form (which is what we want). Comparing against `magicNullValue` also lets the component return `null` from its `onChange` callback when selecting the placeholder option.
+const magicNullValue = " ";
+
+const Select = ({
+  defaultSelectedValue,
+  disabled,
+  id,
+  name,
+  onChange,
+  options,
+  placeholder
+}) => {
+  const [isOpen, toggle, setIsOpen] = useToggle(false);
+
+  const [hasTouch, setHasTouch] = React.useState(false);
+  useEvent("touchstart", () => setHasTouch(true));
+
+  const fakeSelectRef = React.useRef();
+  useClickOutside(fakeSelectRef, () => setIsOpen(false));
+
+  const [value, setValue] = React.useState(defaultSelectedValue);
+
+  const isMounted = useIsMounted();
+  React.useEffect(() => {
+    // NOTE: The `onChange` callback indicates the user action of selecting, so it's not called for the initial render
+    isMounted && onChange(value);
+  }, [value]);
+
+  const handleChange = value => {
+    setValue(value === magicNullValue ? null : value);
+    setIsOpen(false);
+  };
+
+  const label = React.useMemo(
+    () => get(options.find(o => o.value === value), "label", placeholder),
+    [options, value]
+  );
+
+  return (
+    <div
+      className={cn("select", {
+        "select--has-touch": hasTouch,
+        "select--is-mounted": isMounted,
+        "select--is-disabled": disabled
+      })}
+    >
+      <select
+        disabled={disabled}
+        name={name}
+        id={id}
+        onChange={e => handleChange(e.target.value)}
+        value={value || ""}
+      >
+        {placeholder && <option value={magicNullValue}>{placeholder}</option>}
+        {options.map(({ label, value }) => (
+          <option key={value} value={value}>
+            {label}
+          </option>
+        ))}
+      </select>
+
+      <div className="select__fake" ref={fakeSelectRef}>
+        <div
+          className={cn("select__element", {
+            "select__element--active": isOpen
+          })}
+          onClick={disabled ? () => {} : toggle}
+        >
+          {label}
+        </div>
+        {isOpen && (
+          <ul>
+            {options.map(({ label, value }) => (
+              <li
+                className="select__option"
+                key={value}
+                onClick={() => handleChange(value)}
+              >
+                <span>{label}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
 };
 
-class Select extends React.Component {
-  static propTypes = {
-    id: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    options: PropTypes.arrayOf(
-      PropTypes.shape({
-        label: PropTypes.string.isRequired,
-        selected: PropTypes.bool,
-        value: PropTypes.string.isRequired
-      })
-    )
-  };
+Select.propTypes = {
+  defaultSelectedValue: PropTypes.string,
+  disabled: PropTypes.bool,
+  id: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
+  options: PropTypes.arrayOf(
+    PropTypes.exact({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired
+    })
+  ),
+  placeholder: PropTypes.string
+};
 
-  static defaultProps = {
-    options: []
-  };
+Select.propTypesMeta = {
+  disabled: "exclude"
+};
 
-  state = {
-    dropdownIsVisible: false,
-    hasTouch: false,
-    isMounted: false,
-    value: getInitialOption(this.props.options)
-  };
-
-  componentDidMount() {
-    this.setState({ isMounted: true });
-
-    window.addEventListener("click", this.handleClickOutside);
-    window.addEventListener("touchstart", this.onTouchStart);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("click", this.handleClickOutside);
-    window.removeEventListener("touchstart", this.onTouchStart);
-  }
-
-  onTouchStart = () => {
-    this.setState({ hasTouch: true });
-    window.removeEventListener("touchstart", this.onTouchStart);
-  };
-
-  handleClickOutside = e => {
-    if (e.target !== this.fakeSelect && !this.fakeSelect.contains(e.target)) {
-      this.setState({ dropdownIsVisible: false });
-    }
-  };
-
-  handleChange = value => {
-    this.setState({ dropdownIsVisible: false });
-    this.setState({ value });
-  };
-
-  onChange = e => {
-    this.handleChange(e.target.value);
-  };
-
-  onOptionClick(value, e) {
-    e.stopPropagation();
-    this.handleChange(value);
-  }
-
-  toggleDropdown = () => {
-    this.setState(state => ({ dropdownIsVisible: !state.dropdownIsVisible }));
-  };
-
-  getLabel = () =>
-    get(this.props.options.find(o => o.value === this.state.value), "label");
-
-  render() {
-    return (
-      <div
-        className={cn("select", {
-          "has-touch": this.state.hasTouch,
-          "is-mounted": this.state.isMounted
-        })}
-      >
-        <select
-          name={this.props.name}
-          id={this.props.id}
-          onChange={this.onChange}
-          value={this.state.value || ""}
-        >
-          {this.props.options.map(option => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-
-        <div className="select-fake">
-          <div
-            className="select-element"
-            onClick={this.toggleDropdown}
-            ref={div => (this.fakeSelect = div)}
-          >
-            {this.getLabel()}
-          </div>
-          {this.state.dropdownIsVisible && (
-            <ul>
-              {this.props.options.map(option => (
-                <li
-                  className={cn({
-                    "is-active": option.value === this.state.value
-                  })}
-                  key={option.value}
-                  onClick={this.onOptionClick.bind(this, option.value)}
-                >
-                  <span>{option.label}</span>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </div>
-    );
-  }
-}
+Select.defaultProps = {
+  onChange: () => {},
+  options: []
+};
 
 export default Select;
